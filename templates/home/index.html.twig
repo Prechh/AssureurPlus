@@ -1,5 +1,3 @@
-{% extends 'base.html.twig' %}
-
 {% block title %}Hello HomeController!
 {% endblock %}
 
@@ -39,7 +37,7 @@
 	</style>
 
 	<div>
-		<a href="path {{'app_accident_support_new'}}" class="button">
+		<a href="{{ path('app_accident_support_new')}}" class="button">
 			<span>Déclarer un sinistre</span>
 		</a>
 	</div>
