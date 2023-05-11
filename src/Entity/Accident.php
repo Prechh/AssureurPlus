@@ -30,6 +30,9 @@ class Accident
     #[ORM\Column(nullable: true)]
     private ?\DateTimeImmutable $createdAt = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $currentAccidentPosition = null;
+
     /**
      * Constructor
      */
@@ -99,6 +102,18 @@ class Accident
     public function setCreatedAt(?\DateTimeImmutable $createdAt): self
     {
         $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getCurrentAccidentPosition(): ?string
+    {
+        return $this->currentAccidentPosition;
+    }
+
+    public function setCurrentAccidentPosition(?string $currentAccidentPosition): self
+    {
+        $this->currentAccidentPosition = $currentAccidentPosition;
 
         return $this;
     }

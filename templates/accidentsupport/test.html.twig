@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AccidentSupportController!
+{% endblock %}
+
+{% block header %}
+	<meta charset="UTF-8">
+{% endblock %}
+
+
+{% block body %}
+
+	{% if garages is defined and garages|length > 0 %}
+		<ul>
+			{% for garage in garages %}
+				<li>
+					<strong>Adresse:</strong>
+					{{ garage.Adresse }}<br>
+					<strong>Téléphone:</strong>
+					{{ garage.phoneNumber }}<br>
+					<strong>Adresse complète:</strong>
+					{{ garage.fullAdress }}
+				</li>
+			{% endfor %}
+		</ul>
+	{% else %}
+		<p>Aucun service de remorquage trouvé.</p>
+	{% endif %}
+{% endblock %}

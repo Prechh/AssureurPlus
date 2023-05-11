@@ -37,10 +37,14 @@
 	</style>
 
 	<div>
-		<a href="{{ path('app_accident_support_new')}}" class="button">
-			<span>Déclarer un sinistre</span>
-		</a>
+		<button onclick="getAccidentNew()">Déclarer un sinistre</button>
 	</div>
 
-
+	{% block javascripts %}
+		<script type="text/javascript">
+			function getAccidentNew() {
+window.location.href = '{{ path("app_accident_support_new") }}';
+};
+		</script>
+	{% endblock %}
 {% endblock %}

@@ -24,9 +24,47 @@
 			</div>
 
 
+			<div>
+				<button onclick="getLocation()">Charger ma localisation</button>
+			</div>
+
+
 			{{ form_end(form) }}
 
 
 		</div>
 	</div>
+
+	{% block javascripts %}
+		<script type="text/javascript">
+			function getLocation() {
+if (navigator.geolocation) {
+navigator.geolocation.getCurrentPosition(function (position) {
+var latitude = position.coords.latitude;
+var longitude = position.coords.longitude;
+var form = document.getElementsByName('accident')[0];
+if (form && form instanceof HTMLFormElement && typeof form.appendChild === 'function') {
+var inputLatitude = document.createElement('input');
+inputLatitude.setAttribute('type', 'hidden');
+inputLatitude.setAttribute('name', 'latitude');
+inputLatitude.setAttribute('value', latitude);
+form.appendChild(inputLatitude);
+
+var inputLongitude = document.createElement('input');
+inputLongitude.setAttribute('type', 'hidden');
+inputLongitude.setAttribute('name', 'longitude');
+inputLongitude.setAttribute('value', longitude);
+form.appendChild(inputLongitude);
+
+console.log(latitude);
+
+if (typeof form.submit === 'function') {
+form.submit();
+}
+}
+})
+}
+}
+		</script>
+	{% endblock %}
 {% endblock %}
