@@ -142,8 +142,10 @@ class AccidentSupportController extends AbstractController
             if ($nearestGarage !== null) {
                 $garageName = $nearestGarage['Adresse'];
                 $garageAddress = $nearestGarage['fullAdress'];
-                $message = "Jappelle le garage $garageName situe a $garageAddress";
-                return new JsonResponse(['message' => $message]);
+                $message = "Appel en cours du garage ' $garageName ' situe à $garageAddress";
+                return $this->render('accidentsupport/message.html.twig', [
+                    'message' => $message,
+                ]);
             } else {
                 // Aucun service de remorquage trouvé, retournez un message d'erreur
                 return new JsonResponse(['error' => 'Aucun service de remorquage trouvé.']);

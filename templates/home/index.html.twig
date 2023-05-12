@@ -1,50 +1,55 @@
-{% block title %}Hello HomeController!
+{% extends "base.html.twig" %}
+
+{% block title %}
+	Envoyer votre sinistre
 {% endblock %}
+
 
 {% block body %}
 	<style>
-		.example-wrapper {
-			margin: 1em auto;
-			max-width: 800px;
-			width: 95%;
-			font: 18px / 1.5 sans-serif;
-		}
-		.example-wrapper code {
-			background: #F5F5F5;
-			padding: 2px 6px;
-		}
-		/* Style pour le bouton central */
-		.button {
-			display: block;
-			width: 200px;
-			height: 200px;
-			line-height: 200px;
-			text-align: center;
-			margin: auto;
-			border-radius: 100%;
-			background-color: #4CAF50;
-			color: white;
-			font-size: 24px;
-			text-decoration: none;
-			box-shadow: 0 5px 0 #2E8B57;
+
+		body {
+			background-color: #181a19;
 		}
 
-		/* Style pour le texte du bouton */
-		.button span {
-			display: block;
-			margin-top: -15px;
+
+		.main {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+		}
+
+		.btn-center {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 250px;
+			height: 250px;
+			border-radius: 50%;
+			background-color: #ff0000; /* Couleur du bouton */
+			color: #ffffff; /* Couleur du texte */
+			font-size: 30px;
+			font-weight: bold;
+			text-align: center;
+		}
+
+		.btn-center:hover {
+			background-color: #ff3333; /* Couleur du bouton au survol */
+			cursor: pointer;
 		}
 	</style>
 
-	<div>
-		<button onclick="getAccidentNew()">Déclarer un sinistre</button>
+	<div class="main">
+		<div class="btn-center" onclick="getAccidentNew()">Déclarer un sinistre</div>
 	</div>
+{% endblock %}
 
-	{% block javascripts %}
-		<script type="text/javascript">
-			function getAccidentNew() {
+
+{% block javascripts %}
+	<script type="text/javascript">
+		function getAccidentNew() {
 window.location.href = '{{ path("app_accident_support_new") }}';
 };
-		</script>
-	{% endblock %}
+	</script>
 {% endblock %}

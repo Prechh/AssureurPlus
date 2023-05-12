@@ -69,14 +69,6 @@ class AccidentType extends AbstractType
                 'constraints' => [
                     new Assert\NotBlank(),
                 ]
-            ])
-
-            ->add('submit', SubmitType::class, [
-                'attr' => [
-                    "class" => 'btn btn-success mt-5',
-                ],
-                'label' => 'Envoyer',
-
             ]);
     }
 
